@@ -29,19 +29,34 @@ $ whoami
 
 The `whoami` command lets you see which user account you're logged in to from a
 terminal window. This might seem obvious, especially if you're logged in on your
-personal computer, but it's not always clear which account you're you're working
-in the command line.
-
-In a strange circumstance where `whoami` isn't installed, there is another command
-you can use that can tell you your current username. Try:
-
-```bash
-$ id -un
-```
+personal computer, but it's not always clear which account you're running commands
+as. Unix machines have multiple accounts by default (though you may not have seen them
+yet). Some of those accounts have superpowers and it's possible to really mess up your
+computer when you're acting as them. Sometimes before doing something drastic we like
+to run a quick `whoami` to make sure we're doing what we want to do.
 
 ### Identifying the "Present Working Directory" With `pwd`
 
-With your Terminal program open, type in `pwd` and hit return/enter.
+The files on a computer are arranged in what is called a _hierarchical directory structure_.
+This means that they are organized in a tree-like pattern of directories (called folders
+in other systems), which may contain files and other directories. The first directory
+in the file system is called the root directory. The root directory contains files and
+subdirectories, which contain more files and subdirectories and so on.
+
+Most graphical environments today include a file manager program to view and manipulate
+the contents of the file system that may look like this:
+
+<image of file system tree>
+
+Since a command line interface cannot provide graphic pictures of the file system
+structure, it represents it differently. Think of the file system tree as a maze,
+and you are standing in it. At any given moment, you are located in a single directory
+called the working directory. Inside that directory, you can see its files and the
+pathway to its parent directory and the pathways to the subdirectories of the directory
+in which you are standing.
+
+With your Terminal program open, type in `pwd` and hit return/enter to find the name of
+the working directory.
 
 ```bash
 $ pwd
@@ -50,13 +65,35 @@ $ pwd
 You should see some output describing the directory you are currently within.
 The `pwd` command stands for "**p**rint **w**orking **d**irectory".
 You'll see that the operating system created a directory under the "User"
-directory that was named the same as your `whoami` result
+directory that was named the same as your `whoami` result:
 
 `/Users/[your user name]`
 
-We would call this directory your "home" directory.
+Some unix interfaces will put you in:
+
+`/home/[your user name]`
+
+We would call this directory your "home" directory. Whenever you open a terminal
+session (new window, new terminal tab, launching the program for the first time
+after a reboot), you will be placed in your home directory. That's what makes it
+your home!
 
 That output is describing a location on your computer.
+
+<insert screenshots showing navigating from / to Users to kellyegreene with Finder>
+<insert screenshot of pwd>
+
+<pic of pwd>
+<pre>
+/
+  etc
+  var
+  tmp
+  Users
+    kellyegreene
+    myannoyingbrother
+    grandma
+</pre>
 
 `/User/kellyegreene` means that I am currently working within a directory `/Users`
 on the root of my machine, and then within that directory, a directory named
@@ -65,11 +102,8 @@ learn more about the `root` directory which contains all directories....
 
 <something like that>
 
-That's my home directory.
-
-Because it's so common to read files from, or move things into our home
-directories, `bash` lets us type `~` as a shortcut. We'll be working with this
-shortcut later on.
+That's my home directory. As a shortcutm instead of typing `/home/[your login name]`,
+`bash` lets us type `~` as a shortcut. We'll be working with this shortcut later on.
 
 Try this:
 
@@ -82,10 +116,12 @@ $ cd ..
 $ pwd
 ```
 
-You should now see that you are one directory above where you were, in you're
-in a new terminal, you might see:
+You should now see that you are one leve up from where you were. In your terminal
+you might see:
 
 `/Users`
+
+You "moved up" one level of nesting.
 
 You should be able to make a guess about what `cd` does, but we'll explain it
 right now!
@@ -113,37 +149,43 @@ So here are three default placeholders for your file system:
 - `..` The directory in which your current directory is contained—referred to
 as the "**parent**" directory.
 
-You can supply any path to the `cd` command to nkellyegreenegate to that location.
+You can supply any path to the `cd` command to navigate to that location.
 
 ## Demonstrate Manipulating Files in the Command Line
 
 ### Paths in Shell
 
-The path supplied to the `cd` command, for example `/Users/kellyegreene`, is
-known as an absolute path.
-
-Systems can use either *absolute* or *relative* paths.
-
-An absolute path is a path that points to the same location on the file system
-regardless of the working directory. They start with `/` ("forward slash") because
-that is the root of your file system.
-
-This is an absolute path: `/Users/kellyegreene`.
+The path supplied to the `cd` command can be either *absolute* or *relative* paths. 
+An absolute path is a path that always gets you to the same folder. You can recognize
+them because they start with `/`. For example `/Users/kellyegreene`, is an absolute path.
 
 A relative path is a path **relative** to the working directory of the user or
 application, so the full absolute path will not have to be given. They start with
-the name of a directory or a file.
+the name of a directory or a file. For example `kellyegreene/Documents`, is a relative
+path.
 
-This is a relative path: `kellyegreene/Documents`.
+If I were in my home directory `/Users/kellyegreene` directory and said `cd mixtapes/the-masked-rapper-vol-1`,
+it would work! If I were in `/Users/annoyingbrother` and said `cd mixtapes/the-masked-rapper-vol-1`,
+`bash` would return an error because that sub-directory doesn't exist there.
+
+Relative paths exist to make it simpler to move around. Real life is like this too.
+If someone asks if you want to go get a slice of pizza they're probably thinking
+within a few blocks or miles of where you're currently located – somewhere close
+_relatively_ speaking.
+
+"Oh yeah, let's go west on 18th street, cross 6th avenue and go to the place on
+the corner."
+
+What would surprise the heck out of them would be if you gave them absolute coordinates;
+and it would be _even more_ surprising if that location were far away:
+
+"Oh yeah, let's go to 41.890221 and -87.633904!"
 
 Paths use `/` to denote levels.
 
-How many levels are within the following path?
-
+So far we've been finding out where we are in the filesystem "tree," how about we find
+out what's in these directories (besides other directories)?
 `/Users/kellyegreene/Development/code/flatiron-school/mixtape-app`
-
-If you said 6 levels to the question above you are right! Knowing where you
-are in your terminal is very important.
 
 ### Use `ls` to List Files in Shell
 
@@ -157,11 +199,10 @@ You should see a list of all the files within your working directory.
 
 The command `ls` stands for "**l**i**s**t".
 
-We can use flags on most unix commands to give more specific instructions. Most
-programs also accept flags, or options for execution.
-
-A flag is denotated by a `-` ("dash"). **Note:** *In some programs, options are
-passed directly to the command and not via flags.*
+> We can use flags on most unix commands to give more specific instructions or to change
+> the way the feedback is presented. Most programs also accept flags, or options for
+> execution. A flag is denotated by a `-` ("dash"). **Note:** *In some programs, options are
+> passed directly to the command and not via flags.*
 
 A common flag that nearly all programs and commands accept is a standalone `h`,
 for "**h**elp".
@@ -175,47 +216,24 @@ in the `ls` command, `h` is a suffix on the `l` flag meaning "**h**uman readable
 formats." They can be combined with `a` meaning "**a**ll information including.
 Try these three together:
 
-We can use the `ls -al` flag with ls so that we can see all of the files including
-hidden files in "long form".
-
-```bash
-$ ls -lah
-```
-And also:
-
-```bash
-$ ls -l -a -h
-```
-Both are valid input options.
-
-When you've entered `$ ls -lah` above, you should have a received a list of files
-including some that you hadn't seen from entering just `$ ls` before:
-
-```bash
-drwxr-xr-x   6 kellyegreene  staff   204B Jun  2 11:21 .
-drwxr-xr-x   5 kellyegreene  staff   170B May 28 15:52 ..
--rw-r--r--@  1 kellyegreene  staff   6.0K May 28 15:52 .DS_Store
-drwxr-xr-x  13 kellyegreene  staff   442B Jun  2 11:02 .git
--rw-r--r--   1 kellyegreene  staff    66B May 28 15:49 .learn
--rw-r--r--   1 kellyegreene  staff    11K Jun  2 11:21 README.md
-```
-
-Notice that at the top of the file output there are a bunch of files that start with
-a `.`, like `.DS_Store`
-
-Files like `.DS_Store` are not listed. That's because files that start with a `.`
-are _hidden_ files. Your `.bash_profile` is a hidden file in your home directory.
-If you want to see the hidden files you can add the `a` flag to `ls` by typing `$ ls -a`.
+try `ls -l`
+try `ls -h`
+try `ls -lh` (whoa...c-c-c-c-c-combo!)
 
 **Note:** *Combining flags is only valid for single-letter options. A "long option"
 such as* `--force` *is defined with more than one character and must be entered with
-its own flag.*
+its own flag.* For example `--force --remote` `--forceremote` or `--remoteforce`
+
+### Use `cp` to Copy Files and Directories
+
+...
 
 ### Use `mv` to Move or Rename Files and Directories
 
 Move, or `mv` is a command that moves one or more files or directories from one place
-to another.  To move a file from the current directory to another location, enter a
-path as the third word on the command line.
+to another.  Alternatively, think of it as a copy, followed by a delete of the original.
+To move a file from the current directory to another location, enter a path as the third
+word on the command line.
 
 ```bash
 $ mv filename /dir1/
@@ -244,8 +262,9 @@ $ ls
 
 You should see the file you just created, `hello_world.rb`, in the working directory.
 Note that this is an empty file and has nothing inside of it, because you just created it.
+Try using `cp` and `mv` to copy and rename this empty file.
 
-### Making New Directiries Using `mkdir`
+### Making New Directories Using `mkdir`
 
 We can make directories with the `mkdir` command:
 
@@ -256,6 +275,8 @@ Now if you enter `ls` you should see the empty directory you just created in the
 directory.
 
 ### Removing Files With `rm`
+
+<This section needs more spelling out: recursive deletion is a unix is a chainsaw moment>
 
 To delete a file, we can enter `rm` at a shell prompt.
 **Note:** Deleting a file with rm is *permanent*. This action cannot be undone.
@@ -274,6 +295,8 @@ Use this with caution. This action cannot be undone!
 * -r (recursive) — Deletes a directory and all files and subdirectories it contains.
 
 You can also delete directories using `rm` or `rmdir`.
+
+<Also fair to show that `rm -rf /` is a Bad Idea (tm)>
 
 ## Conclusion
 
