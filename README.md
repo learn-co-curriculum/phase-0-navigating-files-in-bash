@@ -8,49 +8,62 @@
 
 Learning command line tools for managing the file system in Bash can give you
 more speed and control over your workflow. It's actually designed for us to be
-lazy, so let's let the computer to do all the work for us. Some tasks are best
+efficient, so let's let the computer to do all the work for us. Some tasks are best
 suited to a GUI like word processing, but at the same time, some tasks are more
-suited to the command line, data manipulation (reporting) and file management.
-The command line will simply become another tool you can add to your belt.
+suited to the command line, data manipulation, reporting, and file management.
+
+For example, imagine a directory full of files that are named with a year, month,
+date, time in 24 hour clock timestamp: `file-2018-06-03T1344`. What if we said
+move all files from 2018 or 2019 that were stamped in the afternoon (the number
+after `T` is greater than 1200). In the CLI that is one, easy command (it's at
+the end!). Using a graphical file explorer, this would be a whoooole lot of
+clicking and thinking.
+
+The command line will become another tool you can add to your belt.
 We'll discuss how to perform file management tasks in this lesson.
 
 ## Demonstrate Interacting with Files and Directories in the Command Line
 
-With a basic idea of basic `bash` commands, we can start to play around. We'll
-show you how to make files and directories and interact with them further. 
+With a basic idea of basic file tree movement commands, we can start to play
+around. We'll show you how to make files and directories and interact with
+them further. 
 
-### Use `ls` to List Files in Shell
+### Use `ls` to List Files
 
-To start, let's show our files and folders. In a new terminal, try this:
+To start, let's show our files and directories. In a new terminal, try this:
 
 ```bash
 $ ls
 ```
 
 The command `ls` stands for "**l**i**s**t", so you should see a list of all the
-folder and file names in the current working directory. If you pass a directory
-name with the `ls` command, you can view all the files and folders in that
-directory. 
+folder (directory) and file names in the current working directory. If you pass
+a directory name with the `ls` command, you can view all the files and folders
+in that directory. 
 
 ### Recognize the Use of Flags With Commands
 
-We can use flags on most commands to give more specific instructions or to
-change the way the feedback is presented. Most programs also accept flags, or
-options for execution. A flag is denotated by a `-` ("dash").  A common flag
-that nearly all programs and commands accept is a standalone `h`, for
-"**h**elp".
+We can use flags on most commands to adjust the behavior of the command
+_slightly_ or to change out the output is presented. Most programs also 
+accept flags, or options for execution. A flag is denotated by a `-` ("dash").
+A common flag that nearly all programs and commands accept is a standalone
+`h`, for "**h**elp".
 
 ```bash
 $ ls -h
 ```
 **Note:** *In some programs, options are passed directly to the command and not via flags.*
+For example, `hugo help` tells the program `hugo` to print its help output.
+There's no guarantee about how a program will present information.
 
 Single-character options can typically be combined with each other. For example,
-in the `ls` command, `h` is a suffix on the `l` flag meaning "**h**uman readable
-formats." They can be combined with `a` meaning "**a**ll information including.
-Try these three together:
+in the `ls` command, `h` is a suffix that means **h**uman readable. `l` is a
+suffix that means **l**ong format (tell me a whole lot about what's in here).
+You can combine them with `ls -lh`. Try these three commands: 
 
-try `ls -l` try `ls -h` try `ls -lh` (whoa...c-c-c-c-c-combo!)
+* try `ls -l` 
+* try `ls -h` 
+* try `ls -lh` (whoa...c-c-c-c-c-combo!)
 
 Combining flags is only valid for single-letter options. A "long option" such
 as* `--force` *is defined with more than one character and must be entered with
@@ -140,16 +153,11 @@ Try copying the file we just created:
 $ cp hello_world.rb hello_world_again.rb
 ```
 
-* If the command contains *two* file names, then it copy the contents of 1st
-  file to the 2nd file. If the 2nd file doesn’t exist, then first it creates one
-  and content is copied to it. But if it existed then it is simply overwritten
-  without any warning. So be careful when you choose destination file name.
-
-* If the command has one or more arguments, specifying file names and following
-  those arguments, an argument specifying directory name then this command
-  copies each source file to the destination directory with the same name. It
-  will create the directory if it doesn't exist, but **if it exists then it will
-  be overwritten**, so be careful!
+If the command contains *two* file names, then it copies the contents of 1st
+file to the 2nd file. If the 2nd file doesn’t exist, then first it creates one
+and content is copied to it. If it existed then it is overwritten without any
+warning. It do the same if you specify file names with an argument specifying
+directory name **if it exists then it will be overwritten**, so be careful!
 
 ```bash
 $ cp hello_world.rb hello_world_again.rb name_of_directory
@@ -158,6 +166,11 @@ Now you have too many files, or some of them are no longer needed. Let's talk
 about how to remove files.
 
 ### Removing Files With `rm`
+
+**Note:** We've already mentioned that you should not be afraid of working in the
+command line, but here's the part where you can **really** break stuff. Deleting
+files is a normal part of the process, but if you're in the wrong spot you could
+do some real damage.
 
 To delete a file, we can enter `rm` at a shell prompt. This command stands for
 **r**e**m**ove.
@@ -182,7 +195,11 @@ You can also delete directories using `rm` or `rmdir`. If you want to remove all
 folders and files in a directory the dull command is `rm -rf name_of_directory`.
 
 **Note:** When using `rm -rf`, be _very_ careful. If you submit a command like
-`rm -rf /` , if you will delete the root directory!
+`rm -rf /` , if you will delete, recursively, everything from the root directory
+downward – effectively wiping your hard drive. This would be bad. There are some
+builtins to limit the damage of this action, but under the right conditions, you
+could effectively scorch your hard disk. This command, in particular, is often a
+"joke" amongst programmer because it is _so_ very, very, very **bad** to do.
 
 ## Conclusion
 
@@ -190,9 +207,9 @@ With these commands, we can begin to organize our file system in a manageable
 way. We illustrated how to create, move, rename, copy, and delete files and
 directories as well as how to avoid causing some chaos with the naming and
 removing of files and directories. Most commands also have many useful flags
-that can give us additional controls and options. As we get accustomed to
-navigating and manipulating file structures in the command line, we will start
-to grasp the power of `bash`.
+that can give us additional controls and options. With just a little bit of
+practice you'll probably find yourself putting Finder or Windows Explorer
+away and reaching for the CLI. Welcome to the club!
 
 ## Resources
 
