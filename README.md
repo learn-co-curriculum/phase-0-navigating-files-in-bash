@@ -90,7 +90,18 @@ $ ls
 
 You should see the file you just created, `hello_world.rb`, in the working
 directory. Note that this is an empty file and has nothing inside of it, because
-you just created it. 
+you just created it.
+
+You can confirm these are empty files by checking the file contents or the file
+size. 
+
+We can use `cat [filename]` to read the contents of a file. If the file is,
+in fact, empty, you should see nothing printed in the terminal. 
+
+If we want to investigate the filesize of a file, we can use the command `ls -l`.
+If the file is empty, the size will be "0" (bytes).
+
+!["filesize"](https://curriculum-content.s3.amazonaws.com/prework/filesize.jpg)
 
 **Unix systems are _case sensitive_**! This is very important. Other systems
 such as Windows are case insensitive when it comes to referring to files. Unix
