@@ -31,7 +31,8 @@ $ ls
 The command `ls` stands for "**l**i**s**t". After you run it, you should then see a list of all the files within your working directory. 
 
 > **Note:** For Ubuntu/WSL users, your home directory may start out empty, so you might not see anything running `ls`. If this is the case,
-> try creating a folder. In fact, now is a good time to create a `Development` folder where you can store your coursework:
+> try creating a folder. In fact, now is a good time to create a `Development` folder where you can store your coursework. We'll use `mkdir`
+> to create the folder (more on this in a moment):
 >
 > ```bash
 > mkdir Development
