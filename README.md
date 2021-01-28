@@ -28,7 +28,18 @@ In a new terminal, which automatically puts you in your _home directory_, try th
 $ ls
 ```
 
-The command `ls` stands for "**l**i**s**t". After you run it, you should then see a list of all the files within your working directory. True to Unix style the command is easy to type and ***short*** (both keys on the home row of a keyboard, one letter on one hand the other on the other hand, it's about as fast as it can get; handy for a command we will run _all the time_).
+The command `ls` stands for "**l**i**s**t". After you run it, you should then see a list of all the files within your working directory. 
+
+> **Note:** For Ubuntu/WSL users, your home directory may start out empty, so you may not see anything running `ls`. If this is the case,
+> try creating a folder. In fact, now is a good time to create a `Development` folder where you can store your coursework:
+>
+> ```bash
+> mkdir Development
+> ```
+> 
+> Once the folder is created, run `ls` again and you should see `Development` listed.
+
+True to Unix style the `ls` command is easy to type and ***short*** (both keys on the home row of a keyboard, one letter on one hand the other on the other hand, it's about as fast as it can get; handy for a command we will run _all the time_).
 
 We can list the contents of another directory by providing an absolute or relative path
 
