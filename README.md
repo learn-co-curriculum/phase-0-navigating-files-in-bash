@@ -1,4 +1,4 @@
-# Basic Commands in Bash
+# Navigating Files and Directories in Bash
 
 ## Learning Goals
 
