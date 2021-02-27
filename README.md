@@ -92,7 +92,7 @@ the output you get.
 
 Single-character options can typically be combined with each other. For example,
 in the `ls` command, `h` is an option on the `l` flag meaning "**h**uman readable
-formats." They can be combined with `a` meaning "**a**ll information including
+formats." They can be combined with `a` meaning "**a**ll information" including
 "hidden files" (files that start with a `.`, often used for internal operating
 system configuration &mdash; we'll expand on this in a moment).
 
@@ -144,7 +144,7 @@ path as the third word on the command line.
 $ mv filename /dir1
 ```
 
-We can also rename file or directory using the `mv` command. To rename a file with
+We can also rename a file or directory using the `mv` command. To rename a file with
 `mv`, the third word on the command line must end in the new filename.
 
 ```bash
@@ -222,7 +222,7 @@ Much like `cp`, if you want to delete a directory, you need to provide the `-r` 
 $ rm -r ~/Desktop/pokemon_fan_fiction
 ```
 
-There additional options to `rm`:
+There are additional options to `rm`:
 
 * -i (interactive) — Prompts you to confirm the deletion. This option can stop you from
 deleting a file by mistake.
