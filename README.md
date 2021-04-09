@@ -141,7 +141,7 @@ to another.  To move a file from the current directory to another location, ente
 path as the third word on the command line.
 
 ```bash
-$ mv filename /dir1
+$ mv filename ./dir1
 ```
 
 We can also rename a file or directory using the `mv` command. To rename a file with
