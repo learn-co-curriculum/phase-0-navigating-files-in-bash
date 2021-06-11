@@ -245,7 +245,7 @@ There are a variety of commands you can use to manipulate files via the command 
 - [15 Useful Bash Commands](http://www.thegeekstuff.com/2010/08/bash-shell-builtin-commands/)
 - [The One True Path](http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/)
 - [More on paths - Wikipedia](http://en.wikipedia.org/wiki/Path_\(computing\))
-- [The history of hidden files](https://plus.google.com/101960720994009339267/posts/R58WgWwN9jp)
+- [How Dot Files Became Hidden Files](https://linux-audit.com/linux-history-how-dot-files-became-hidden-files/)
 
 
 
