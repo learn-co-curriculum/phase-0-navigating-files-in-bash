@@ -97,7 +97,7 @@ Single-character options can typically be combined with each other. For example,
 in the `ls` command, `h` is an option on the `l` flag meaning "**h**uman readable
 formats." They can be combined with `a` meaning "**a**ll information" including
 "hidden files" (files that start with a `.`, often used for internal operating
-system configuration &mdash; we'll expand on this in a moment).
+system configuration — we'll expand on this in a moment).
 
 Try these three together:
 
