@@ -25,7 +25,7 @@ to use the CLI.
 In a new terminal, which automatically puts you in your _home directory_,
 try this:
 
-```bash
+```console
 $ ls
 ```
 
@@ -39,8 +39,8 @@ your working directory.
 > can store your coursework. We'll use `mkdir` to create the folder (more on
 > this in a moment):
 >
-> ```bash
-> mkdir Development
+> ```console
+> $ mkdir Development
 > ```
 >
 > Once the folder is created, run `ls` again and you should see `Development`
@@ -54,7 +54,7 @@ time_).
 We can list the contents of another directory by providing an absolute or
 relative path
 
-```bash
+```console
 $ ls pathname
 ```
 
@@ -65,7 +65,7 @@ change the output. Most programs accept flags, or options for execution.
 
 A flag is denoted by a `-` ("dash").
 
-```bash
+```console
 $ ls -l
 ```
 
@@ -75,7 +75,7 @@ are on that file, and the file name.
 
 For example:
 
-```bash
+```console
 $ ls  /var/tmp
 SIMToolKit
 hi
@@ -85,7 +85,7 @@ sinatra-user-auth
 
 becomes:
 
-```bash
+```console
 $ ls -l /var/tmp
 total 0
 drwxrwxrwx   3 byron.poodle  wheel   96 Jun  5  2018 SIMToolKit
@@ -105,13 +105,13 @@ operating system configuration — we'll expand on this in a moment).
 
 Try these three together:
 
-```bash
+```console
 $ ls -lah
 ```
 
 And also:
 
-```bash
+```console
 $ ls -l -a -h
 ```
 
@@ -120,7 +120,7 @@ Both are valid input options and mean the same thing, as far as `ls` is concerne
 When you entered `$ ls -lah` above, you should have a received a list of files
 including some that you hadn't seen from entering just `$ ls` before:
 
-```bash
+```console
 drwxr-xr-x   6 kellyegreene  staff   204B Jun  2 11:21 .
 drwxr-xr-x   5 kellyegreene  staff   170B May 28 15:52 ..
 -rw-r--r--@  1 kellyegreene  staff   6.0K May 28 15:52 .DS_Store
@@ -148,20 +148,20 @@ Move, or `mv` is a command that moves one or more files or directories from one
 place to another. To move a file from the current directory to another location,
 enter a path as the third word on the command line.
 
-```bash
+```console
 $ mv filename ./dir1
 ```
 
 We can also rename a file or directory using the `mv` command. To rename a file
 with `mv`, the third word on the command line must end in the new filename.
 
-```bash
+```console
 $ mv original_program.rb renamed_program.rb
 ```
 
 We could combine these two usages as:
 
-```bash
+```console
 $ mv temp_download.gif ~/Desktop/cats_with_weapons/ninja_cat.gif
 ```
 
@@ -174,14 +174,14 @@ If you think about it, move is really "copy, but delete the original." Well,
 
 It uses the same syntax as `mv`:
 
-```bash
+```console
 $ cp letter_to_mom.txt letter_to_mom-2019-02-15.txt
 ```
 
 If you want to copy a directory and its file contents, you need to use the `-r`
 flag.
 
-```bash
+```console
 $ cp -r february_cat_gifs ~/Desktop/vital_media_files
 ```
 
@@ -193,13 +193,13 @@ $ cp -r february_cat_gifs ~/Desktop/vital_media_files
 We can use the `touch` command to create empty files in the current directory.
 Try:
 
-```bash
+```console
 $ touch hello_world.rb
 ```
 
 Now try:
 
-```bash
+```console
 $ ls
 ```
 
@@ -211,7 +211,7 @@ you just created it.
 
 We can make directories with the `mkdir` command:
 
-```bash
+```console
 $ mkdir name_of_directory
 ```
 
@@ -223,14 +223,14 @@ working directory.
 To delete a file, we can enter `rm` at a shell prompt. **Note:** Deleting a file
 with rm is _permanent_. This action cannot be undone!
 
-```bash
+```console
 $ rm hello_world.rb
 ```
 
 Much like `cp`, if you want to delete a directory, you need to provide the `-r`
 flag
 
-```bash
+```console
 $ rm -r ~/Desktop/pokemon_fan_fiction
 ```
 
