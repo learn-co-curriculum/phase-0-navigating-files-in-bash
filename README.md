@@ -255,6 +255,5 @@ resources as you need to, and it will get easier as you go along.
 - [Environment Variables](http://cbednarski.com/articles/understanding-environment-variables-and-the-unix-path/)
 - [Built-in Shell Commands](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html) _Very useful_
 - [15 Useful Bash Commands](http://www.thegeekstuff.com/2010/08/bash-shell-builtin-commands/)
-- [The One True Path](http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/)
 - [More on paths - Wikipedia](<http://en.wikipedia.org/wiki/Path_(computing)>)
 - [How Dot Files Became Hidden Files](https://linux-audit.com/linux-history-how-dot-files-became-hidden-files/)
