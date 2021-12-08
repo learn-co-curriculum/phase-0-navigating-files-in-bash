@@ -1,4 +1,4 @@
-# Working with Files and Directories in Bash
+# Working with Files and Directories in the CLI
 
 ## Learning Goals
 
@@ -169,9 +169,9 @@ directory, we could do that like this:
 mv path_to_file/filename ./
 ```
 
-Recall that `.` is a `bash` shortcut for the "current" directory. The command
-above tells bash to move the file `filename` in the location specified by
-`path_to_file` into the working directory.
+Recall that `.` is a shell application shortcut for the "current" directory. The
+command above tells the shell to move the file `filename` in the location
+specified by `path_to_file` into the working directory.
 
 You may also see `./` used to explicitly specify that we're starting from the
 working directory. For example, to move a file into a subdirectory inside the
@@ -221,8 +221,8 @@ contents, you need to use the `-r` (**r**ecursive) flag:
 $ cp -r february_cat_gifs ~/Desktop/vital_media_files
 ```
 
-This command tells `bash` to copy the `february_cat_gifs` folder **and all of
-its contents** into the `vital_media_files` folder on the desktop.
+This command tells the shell application to copy the `february_cat_gifs` folder
+**and all of its contents** into the `vital_media_files` folder on the desktop.
 
 ## Create New Files with `touch`
 
