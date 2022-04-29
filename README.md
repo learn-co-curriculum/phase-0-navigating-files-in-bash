@@ -3,10 +3,10 @@
 ## Learning Goals
 
 - List files and directories with `ls`
-- Move or rename files and directories with `mv`
-- Copy files and directories with `cp`
 - Create new files with `touch`
 - Create new directories with `mkdir`
+- Move or rename files and directories with `mv`
+- Copy files and directories with `cp`
 - Remove files or directories with `rm`
 
 ## Introduction
@@ -142,6 +142,36 @@ use the `a` flag when you run `ls` if you want to see them.
 option" such as_ `--force` _is defined with more than one character and cannot
 be combined with other flags._
 
+## Create New Files with `touch`
+
+We can use the `touch` command to create a new (empty) file in the current
+directory. Try:
+
+```console
+$ touch hello_world.rb
+```
+
+Now try:
+
+```console
+$ ls
+```
+
+You should see the file you just created, `hello_world.rb`, in the working
+directory. Note that this is an empty file and has nothing inside of it, because
+you just created it.
+
+## Create New Directories with `mkdir`
+
+We can make directories with the `mkdir` command:
+
+```console
+$ mkdir name_of_directory
+```
+
+Now if you enter `ls` you should see the empty directory you just created in the
+working directory.
+
 ## Move or Rename Files and Directories with `mv`
 
 `mv` is the command that is used to move files or directories from one place to
@@ -223,36 +253,6 @@ $ cp -r february_cat_gifs ~/Desktop/vital_media_files
 
 This command tells the shell application to copy the `february_cat_gifs` folder
 **and all of its contents** into the `vital_media_files` folder on the desktop.
-
-## Create New Files with `touch`
-
-We can use the `touch` command to create a new (empty) file in the current
-directory. Try:
-
-```console
-$ touch hello_world.rb
-```
-
-Now try:
-
-```console
-$ ls
-```
-
-You should see the file you just created, `hello_world.rb`, in the working
-directory. Note that this is an empty file and has nothing inside of it, because
-you just created it.
-
-## Create New Directories with `mkdir`
-
-We can make directories with the `mkdir` command:
-
-```console
-$ mkdir name_of_directory
-```
-
-Now if you enter `ls` you should see the empty directory you just created in the
-working directory.
 
 ## Remove Files or Directories with `rm`
 
